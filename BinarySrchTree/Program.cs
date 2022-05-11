@@ -8,3 +8,5 @@ bs1.Insert(30);
 bs1.Insert(70);
 bs1.Display();
 bs1.GetSize();
+bool result = bs1.IfExists(30, bs1);
+Console.WriteLine(result);

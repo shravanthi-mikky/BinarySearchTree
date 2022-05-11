@@ -43,7 +43,6 @@ namespace BinarySrchTree
             {
                 this.leftCount++;
                 this.LeftTree.Display();
-
             }
             Console.WriteLine(this.NodeData.ToString());
             if (this.RightTree != null)
@@ -56,6 +55,30 @@ namespace BinarySrchTree
         {
             Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
         }
-        
+        public bool IfExists(T element, BST_Methods<T> node)
+        {
+            if (node == null)
+            {
+                result = false;
+            }
+            if (node.NodeData.Equals(element))
+            {
+                Console.WriteLine("Found the element in BST" + " " + node.NodeData);
+                result = true;
+            }
+            else
+            {
+                Console.WriteLine("Current element is {0} in BST", node.NodeData);
+            }
+            if (element.CompareTo(node.NodeData) < 0)
+            {
+                IfExists(element, node.LeftTree);
+            }
+            if (element.CompareTo(node.NodeData) > 0)
+            {
+                IfExists(element, node.RightTree);
+            }
+            return result;
+        }
     }
 }
