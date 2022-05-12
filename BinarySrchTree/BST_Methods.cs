@@ -17,7 +17,7 @@ namespace BinarySrchTree
             this.LeftTree = LeftTree;
             this.RightTree = RightTree;
         }
-        int leftCount = 0, rightCount = 0;
+        public int leftCount = 0, rightCount = 0;
         bool result = false;
         public void Insert(T item)
         {
@@ -25,14 +25,23 @@ namespace BinarySrchTree
             if (currentNodeValue.CompareTo(item) > 0)
             {
                 if (this.LeftTree == null)
+                { 
+                    //this.leftCount++;
                     this.LeftTree = new BST_Methods<T>(item);
+                }
+                   
                 else
+                {
                     this.LeftTree.Insert(item);
+                }
             }
             else
             {
                 if (this.RightTree == null)
+                {
                     this.RightTree = new BST_Methods<T>(item);
+                    //rightCount++;
+                }
                 else
                     this.RightTree.Insert(item);
             }
@@ -45,11 +54,13 @@ namespace BinarySrchTree
                 this.LeftTree.Display();
             }
             Console.WriteLine(this.NodeData.ToString());
+
             if (this.RightTree != null)
             {
                 this.rightCount++;
                 this.RightTree.Display();
             }
+
         }
         public void GetSize()
         {
