@@ -46,24 +46,25 @@ namespace BinarySrchTree
                     this.RightTree.Insert(item);
             }
         }
-        public void Display()
+        public void Display(BST_Methods<T> bst_Methods)
         {
             if (this.LeftTree != null)
             {
-                this.leftCount++;
-                this.LeftTree.Display();
+                bst_Methods.leftCount++;
+                this.LeftTree.Display(bst_Methods);
             }
             Console.WriteLine(this.NodeData.ToString());
 
             if (this.RightTree != null)
             {
-                this.rightCount++;
-                this.RightTree.Display();
+                bst_Methods.rightCount++;
+                this.RightTree.Display(bst_Methods);
             }
 
         }
-        public void GetSize()
+        public void GetSize(BST_Methods<T> bst_Methods)
         {
+            //Display(bst_Methods);
             Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
         }
         public bool IfExists(T element, BST_Methods<T> node)
